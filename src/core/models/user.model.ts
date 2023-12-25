@@ -1,10 +1,12 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import type { HydratedDocument } from 'mongoose';
 
+import type { Role, User as IUser } from '../interfaces';
+
 export type UserDocument = HydratedDocument<User>;
 
 @Schema()
-export class User {
+export class User implements IUser {
   @Prop()
   idPlatform: number;
 
@@ -15,16 +17,22 @@ export class User {
   login: string;
 
   @Prop()
-  password?: string;
+  password?: string; // ? admin
 
-  @Prop()
-  role: string; // 'user' | 'admin' | 'dev'
+  @Prop({ type: String })
+  role: Role; // 'user' | 'admin' | 'dev'
 
   @Prop()
   isIssueCoins: boolean;
 
   @Prop()
   coins: number;
+
+  @Prop()
+  bets: boolean;
+
+  @Prop()
+  purchases: boolean;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

@@ -1,9 +1,13 @@
 import { Module } from '@nestjs/common';
+import { config } from 'dotenv';
 
-import { UsersModule } from './services/users/users.module';
+import { UsersModule } from './users/users.module';
+import { MongooseModule } from '@nestjs/mongoose';
+
+config();
 
 @Module({
-  imports: [UsersModule],
+  imports: [MongooseModule.forRoot(process.env.DATABASE_URI), UsersModule],
   controllers: [],
   providers: [],
 })
