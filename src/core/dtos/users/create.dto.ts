@@ -33,8 +33,8 @@ export class CreateUserDto implements User {
   coins: number;
 
   @ApiProperty()
-  bets: Bets[]; // TODO: Change it to normal types
+  bets: Bets[];
 
   @ApiProperty()
-  purchases: PurchasesUser[]; // TODO: Change it to normal types
+  purchases: PurchasesUser[];
 }
