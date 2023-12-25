@@ -1,7 +1,13 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import type { HydratedDocument } from 'mongoose';
+import { Types, type HydratedDocument } from 'mongoose';
 
-import type { Role, User as IUser } from '../interfaces';
+import {
+  type Role,
+  type User as IUser,
+  NameModels,
+  PurchasesUser,
+} from '../interfaces';
+import { Bets } from './bets.model';
 
 export type UserDocument = HydratedDocument<User>;
 
@@ -19,20 +25,20 @@ export class User implements IUser {
   @Prop()
   password?: string; // ? admin
 
-  @Prop({ type: String })
+  @Prop({ type: String, default: 'user' })
   role: Role; // 'user' | 'admin' | 'dev'
 
-  @Prop()
+  @Prop({ default: true })
   isIssueCoins: boolean;
 
-  @Prop()
+  @Prop({ default: 5000 })
   coins: number;
 
-  @Prop()
-  bets: boolean;
+  @Prop({ type: Types.ObjectId, ref: NameModels.Bets })
+  bets: Bets[];
 
-  @Prop()
-  purchases: boolean;
+  @Prop({ type: [Object] })
+  purchases: PurchasesUser[];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

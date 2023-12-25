@@ -1,3 +1,5 @@
+import { Bets } from './bets.interface';
+
 export interface User {
   idPlatform: number;
   platform: string;
@@ -6,8 +8,14 @@ export interface User {
   role: string;
   isIssueCoins: boolean;
   coins: number;
-  bets: boolean; // TODO: Change to type Bets when created.
-  purchases: boolean; // TODO: Change to type Purchases when created.
+  bets: Bets[]; // TODO: Change to type Bets when created.
+  purchases: PurchasesUser[];
 }
+
+export type PurchasesUser = {
+  idItem: number;
+  itemLabel: string;
+  itemImage: string;
+};
 
 export type Role = 'user' | 'admin' | 'dev';

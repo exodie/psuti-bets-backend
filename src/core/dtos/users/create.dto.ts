@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsBoolean, IsNumber, IsString } from 'class-validator';
 
-import type { Role } from '@/core/interfaces';
+import type { Bets, PurchasesUser, Role, User } from '@/core/interfaces';
 
-export class CreateUserDto {
+export class CreateUserDto implements User {
   @IsNumber()
   @ApiProperty()
   idPlatform: number;
@@ -33,8 +33,8 @@ export class CreateUserDto {
   coins: number;
 
   @ApiProperty()
-  bets: boolean; // TODO: Change it to normal types
+  bets: Bets[]; // TODO: Change it to normal types
 
   @ApiProperty()
-  purchases: boolean; // TODO: Change it to normal types
+  purchases: PurchasesUser[]; // TODO: Change it to normal types
 }
