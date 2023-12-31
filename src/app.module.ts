@@ -8,7 +8,11 @@ import { MatchesModule } from './matches/matches.module';
 config();
 
 @Module({
-  imports: [MongooseModule.forRoot(process.env.DATABASE_URI), UsersModule, MatchesModule],
+  imports: [
+    MongooseModule.forRoot(process.env.DATABASE_URI),
+    UsersModule,
+    MatchesModule,
+  ],
   controllers: [],
   providers: [],
 })
