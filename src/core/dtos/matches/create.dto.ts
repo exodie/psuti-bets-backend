@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-
-import type { Command, MatchCategory, Matches } from '@/core/interfaces';
 import { IsObject, IsString } from 'class-validator';
+
+import type { Bets, Command, MatchCategory, Matches } from '@/core/interfaces';
 
 export class CreateMatchesDto implements Matches {
   @IsString()
@@ -26,5 +26,5 @@ export class CreateMatchesDto implements Matches {
 
   @IsString()
   @ApiProperty()
-  bets: string;
+  bets: Bets[];
 }

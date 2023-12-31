@@ -1,10 +1,12 @@
+import { Bets } from './bets.interface';
+
 export interface Matches {
   name: string;
   idTournaments?: string;
   category: MatchCategory;
   xCommand: Command;
   yCommand: Command;
-  bets: string;
+  bets: Bets[];
 }
 
 export type Command = {

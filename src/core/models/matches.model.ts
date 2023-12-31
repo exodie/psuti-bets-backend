@@ -3,10 +3,11 @@ import { Types, type HydratedDocument } from 'mongoose';
 
 import {
   NameModels,
-  Matches as IMatches,
-  MatchCategory,
-  Command,
+  type Matches as IMatches,
+  type MatchCategory,
+  type Command,
 } from '../interfaces';
+import { Bets } from './bets.model';
 
 export type MatchesDocument = HydratedDocument<Matches>;
 
@@ -15,7 +16,7 @@ export class Matches implements IMatches {
   @Prop()
   name: string;
 
-  @Prop({ type: Types.ObjectId, ref: NameModels.Tournaments })
+  @Prop({ type: Types.ObjectId, ref: NameModels.Tournaments, default: '' })
   idTournaments?: string;
 
   @Prop({ type: String })
@@ -28,7 +29,7 @@ export class Matches implements IMatches {
   yCommand: Command;
 
   @Prop({ type: Types.ObjectId, ref: NameModels.Bets })
-  bets: string;
+  bets: [Bets];
 }
 
 export const MatchesSchema = SchemaFactory.createForClass(Matches);
