@@ -22,9 +22,6 @@ export class User implements IUser {
   @Prop()
   login: string;
 
-  @Prop()
-  password?: string; // ? admin
-
   @Prop({ type: String, default: 'user' })
   role: Role; // 'user' | 'admin' | 'dev'
 

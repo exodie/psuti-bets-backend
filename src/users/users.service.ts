@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 import { NameModels, User } from '@/core/interfaces';
-import { CreateUserDto } from '@/core/dtos/users/create.dto';
+import { CreateUserDto } from '@/core/dtos/users';
 
 @Injectable()
 export class UsersService {

@@ -16,6 +16,6 @@ export class UsersController {
 
   @Delete('')
   async remove(@Query('id') id: number) {
-    return this.usersService.remove(id);
+    return await this.usersService.remove(id);
   }
 }

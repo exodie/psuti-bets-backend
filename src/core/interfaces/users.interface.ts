@@ -4,11 +4,10 @@ export interface User {
   idPlatform: number;
   platform: string;
   login: string;
-  password?: string;
   role: string;
   isIssueCoins: boolean;
   coins: number;
-  bets: Bets[]; // TODO: Change to type Bets when created.
+  bets: Bets[];
   purchases: PurchasesUser[];
 }
 
