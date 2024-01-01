@@ -31,10 +31,10 @@ export class User implements IUser {
   @Prop({ default: 5000 })
   coins: number;
 
-  @Prop({ type: Types.ObjectId, ref: NameModels.Bets })
+  @Prop({ type: Types.ObjectId, ref: NameModels.Bets, default: [] })
   bets: Bets[];
 
-  @Prop({ type: [Object] })
+  @Prop({ type: [Object], default: [] })
   purchases: PurchasesUser[];
 }
 

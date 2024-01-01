@@ -9,12 +9,12 @@ import { CreateUserDto } from '@/core/dtos/users/create.dto';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post('')
+  @Post()
   async create(@Body() createUserDto: CreateUserDto) {
     return await this.usersService.create(createUserDto);
   }
 
-  @Delete('')
+  @Delete()
   async remove(@Query('id') id: number) {
     return await this.usersService.remove(id);
   }

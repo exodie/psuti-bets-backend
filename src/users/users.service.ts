@@ -7,7 +7,9 @@ import { CreateUserDto } from '@/core/dtos/users';
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectModel(NameModels.User) private usersModel: Model<User>) {}
+  constructor(
+    @InjectModel(NameModels.User) private usersModel: Model<Readonly<User>>,
+  ) {}
 
   async create(createUserDto: CreateUserDto) {
     const findUser = await this.findUser(createUserDto.idPlatform);
