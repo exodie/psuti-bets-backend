@@ -28,7 +28,7 @@ export class Matches implements IMatches {
   @Prop({ type: Object })
   yCommand: Command;
 
-  @Prop({ type: Types.ObjectId, ref: NameModels.Bets })
+  @Prop({ type: Types.ObjectId, ref: NameModels.Bets, default: [] })
   bets: [Bets];
 }
 
